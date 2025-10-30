@@ -104,67 +104,95 @@ var LZString=function(){var r=String.fromCharCode,o="ABCDEFGHIJKLMNOPQRSTUVWXYZa
 		<div id="init-lacking"><p>Browser lacks capabilities required to play.</p><p>Upgrade or switch to another browser.</p></div>
 		<div id="init-loading"><div>Loading&hellip;</div></div>
 	</div>
-	<tw-storydata name="When the Filter Fails" startnode="1" creator="Twine" creator-version="2.10.0" format="SugarCube" format-version="2.37.3" ifid="15DEC6A6-6894-4ACC-AD82-AE17D8BDA16F" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">body {
-  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-  color: #f2f2f2;
-  font-family: "Poppins", sans-serif;
+	<tw-storydata name="When the Filter Fails" startnode="1" creator="Twine" creator-version="2.10.0" format="SugarCube" format-version="2.37.3" ifid="15DEC6A6-6894-4ACC-AD82-AE17D8BDA16F" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/* === GLOBAL CYBER-THEME STYLING === */
+body {
+  background-image: url("https://raw.githubusercontent.com/Vaibhav003-beep/Project-CIS485-UFV/main/Image2.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: repeat;
+  font-family: "Consolas", "Courier New", monospace;
+  line-height: 1.6;
+  text-align: left;
+  color: #00ff88;
+  font-size:20px;
 }
 
+/* Dim overlay for readability */
 body::before {
   content: "";
   position: fixed;
   top: 0; left: 0;
   width: 100%; height: 100%;
-  background: rgba(0, 0, 0, 0.35);
-  backdrop-filter: blur(3px);
+  background: rgba(0, 0, 0, 0.55);
   z-index: -1;
 }
 
-
-tw-passage {
-  padding: 2em;
-  border-radius: 12px;
-  background: rgba(255,255,255,0.05);
+/* Force text left-aligned and glowing */
+#story, #passages, .passage, .passage .content {
+  text-align: left !important;
+  color: #00ff88 !important;
+  text-shadow: 0 0 10px #00ff99, 0 0 20px #00ff55; /* glow effect */
 }
 
-/* Clean cyber-theme links (no injected text) */
+/* Apply same glow to headings and paragraphs */
+h1, h2, h3, h4, h5, h6, p, ul, ol, blockquote {
+  color: #00ff88 !important;
+  text-shadow: 0 0 10px #00ff99, 0 0 20px #00ff55;
+  text-align: left !important;
+}
+
+/* Matching glowing links */
 a {
-  color: #00e0b8;
-  font-weight: 600;
+  color: #00ff88;
+  font-weight: bold;
   text-decoration: none;
+  text-shadow: 0 0 10px #00ff99, 0 0 20px #00ff55;
   transition: color 0.3s ease, text-shadow 0.3s ease;
 }
+
 a:hover {
-  color: #5fffe0;
-  text-shadow: 0 0 8px #00ffc8;
-}
-a:visited { color: #66b2ff; }
-
-.link-internal {
-  border-bottom: 1px dashed #00e0b8;
-  padding: 2px 4px;
-  border-radius: 4px;
-}
-.link-internal:hover {
-  border-bottom: 1px solid #5fffe0;
-  background-color: rgba(0,224,184,0.1);
+  color: #00ffaa;
+  text-shadow: 0 0 15px #00ffcc, 0 0 30px #00ffaa;
 }
 
-/* Hard reset: stop anything from injecting text around links */
-a::before,
-a::after,
-.link-internal::before,
-.link-internal::after,
-.link-external::before,
-.link-external::after {
-  content: none !important;
+/* Make sure container isn’t centered */
+#passages {
+  display: block !important;
+  margin: 0 auto !important;
+  text-align: left !important;
 }
 
-/* common culprits — delete if present */
-a::before { content: "[[link]]"; }
-.link-internal::before { content: "[[link]]"; }
-*[data-type]::before { content: attr(data-type); }  /* shows “link”, “button”, etc. */
-a::before { content: "[" attr(data-type) "] "; }     /* another debug pattern */</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Info Page" tags="" position="100,400" size="100,100">Intertwined Presents
+/* Force left alignment in SugarCube */
+#passages {
+  display: block !important;
+  text-align: left !important;
+  margin: 0 !important;
+  justify-content: flex-start !important;  /* in case a flex layout was set */
+  align-items: flex-start !important;
+}
+
+.passage,
+.passage .content {
+  text-align: left !important;
+}
+
+/* Also left-align headings and lists just in case */
+h1, h2, h3, h4, h5, h6,
+p, ul, ol, blockquote {
+  text-align: left !important;
+}
+
+/* If a theme made the whole body centered via flex, neutralize it */
+html, body {
+  display: block !important;
+}
+
+/* Keep your green text */
+#story, #passages, .passage, .passage .content, body {
+  color: #00ff88 !important;
+}
+</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Info Page" tags="" position="100,400" size="100,100">Intertwined Presents
 When the Filter Fails
 Inspired by ACM Case Study: Malicious Inputs to Content Filters
 ACM Ethics Link: https://ethics.acm.org/code-of-ethics
@@ -296,9 +324,7 @@ Casey: &quot;You want us to admit publicly that the filter blocked LGBTQ+ and va
 
 You nod. Casey looks stressed but doesn’t fight you.
 
-Part of this plan means actually talking to the people who were harmed.
-
-&lt;&lt;set $hasHeardUsers = true&gt;&gt;
+Part of this plan means actually talking to the people who were harmed.&lt;&lt;set $hasHeardUsers = true&gt;&gt;
 
 [[Meet with the schools and parents -&gt;Scene 4C - User Voices]]
 </tw-passagedata><tw-passagedata pid="9" name="Scene 4B - Rebrand Calm" tags="" position="1350,725" size="100,100">Rebrand Calm
@@ -343,9 +369,7 @@ Your final call decides how this ends.
 
 [[Admit bias publicly and outline the fix -&gt;Ending 1 - Responsible Developer]]
 [[Deny problem, say it&#39;s isolated and already solved -&gt;Ending 2 - Quiet Fixer]]
-[[Cover it completely and say nothing went wrong -&gt;Ending 3 - Corporate Fallout]]
-
-&lt;&lt;if $hasHeardUsers is true&gt;&gt;
+[[Cover it completely and say nothing went wrong -&gt;Ending 3 - Corporate Fallout]]&lt;&lt;if $hasHeardUsers is true&gt;&gt;
 [[Propose an open retraining program with schools -&gt;Ending 4 - Collaborative Rebuild]]
 &lt;&lt;/if&gt;&gt;
 </tw-passagedata><tw-passagedata pid="12" name="Ending 1 - Responsible Developer" tags="" position="2025,150" size="100,100">Responsible Developer
